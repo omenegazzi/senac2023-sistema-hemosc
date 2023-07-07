@@ -27,6 +27,11 @@ public class telaCadastroUsuario extends javax.swing.JFrame {
         jLabel1.setText("Confirmar senha:");
 
         btnCadastro.setText("Cadastrar");
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,6 +75,10 @@ public class telaCadastroUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastroActionPerformed
 
     public void detalhamento(){
         telaCadastroUsuario.setVisible(true);
