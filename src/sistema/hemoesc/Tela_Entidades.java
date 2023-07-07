@@ -52,7 +52,7 @@ public class Tela_Entidades extends javax.swing.JFrame {
 
         jLabel1.setText("ID");
 
-        jLabel2.setText("Nome:");
+        jLabel2.setText("Entidade:");
 
         jLabel3.setText("Endereço:");
 
@@ -116,7 +116,7 @@ public class Tela_Entidades extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Endereço", "Cidade"
+                "Entidade", "Endereço", "Cidade"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
