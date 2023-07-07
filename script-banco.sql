@@ -47,7 +47,7 @@ FOREIGN KEY (fk_cidades_id_cidade) REFERENCES cidades(id_cidade)
 CREATE TABLE tipos_sanguineos(
 id_tipo_sanguineo INT NOT NULL AUTO_INCREMENT,
 descricao VARCHAR(45),
-FATIR_RH VARCHAR(45),
+fator_rh VARCHAR(45),
 estoque INT,
 PRIMARY KEY (id_tipo_sanguineo)
 );
