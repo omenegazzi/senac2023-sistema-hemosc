@@ -22,6 +22,11 @@ public class telaLogin extends javax.swing.JFrame {
         lblSenha.setText("Senha:");
 
         btnAcessar.setText("Entrar");
+        btnAcessar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcessarActionPerformed(evt);
+            }
+        });
 
         btnCadastroUser.setText("Cadastro");
         btnCadastroUser.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +82,10 @@ public class telaLogin extends javax.swing.JFrame {
         t.detalhamento();
         this.dispose();
     }//GEN-LAST:event_btnCadastroUserActionPerformed
+
+    private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAcessarActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
