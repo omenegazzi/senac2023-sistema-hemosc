@@ -148,9 +148,7 @@ public class telaCidades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tAutoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tAutoresMouseClicked
-        tfID.setText(tAutores.getValueAt(tAutores.getSelectedRow(),0).toString());
-        tfNome.setText(tAutores.getValueAt(tAutores.getSelectedRow(),1).toString());
-        tfEmail.setText(tAutores.getValueAt(tAutores.getSelectedRow(), 2).toString());
+
     }//GEN-LAST:event_tAutoresMouseClicked
 
     /**
