@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 public class AgendamentosDAO {
 
     private List<Agendamentos> agendamentosList = new ArrayList();
-    private String ListSQL = "SELECT * from cidades";
+    private String ListSQL = "SELECT * from agendamentos";
     
     public List<Agendamentos> getAgendamentosList() {
         return agendamentosList;
@@ -34,7 +34,14 @@ public class AgendamentosDAO {
     }
     
     public List<Agendamentos> listar(){
-        setListSQL("SELECT * from cidades");
+        setListSQL("SELECT * from agendamentos");
+        gerarLista();
+        
+        return getAgendamentosList();
+    }
+    
+    public List<Agendamentos> pesquisar(String Campo,String Valor){
+        setListSQL("SELECT * from agendamentos where "+Campo+" = "+Valor);
         gerarLista();
         
         return getAgendamentosList();
@@ -57,10 +64,10 @@ public class AgendamentosDAO {
             //Registrando os valores do banco no objeto
             while (rs.next()) {
                 Agendamentos ag = new Agendamentos();
-                ag.setId(rs.getInt("id_cidade"));
+                ag.setId(rs.getInt("id_agendamento"));
                 ag.setData(Integer.parseInt(rs.getDate("data").toString()));
                 ag.setHora(Integer.parseInt(rs.getTime("hora").toString()));
-                ag.setIdDoador(rs.getInt("id_doador"));
+                ag.setIdDoador(rs.getInt("fk_doadores_id_doador"));
 
                 //Adicionando objeto na lista
                 getAgendamentosList().add(ag);
@@ -77,7 +84,7 @@ public class AgendamentosDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = conn.prepareStatement("INSERT INTO agendamento(data,hora,id_doador) VALUES(?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO agendamentos(data,hora,fk_doadores_id_doador) VALUES(?,?,?)");
             stmt.setInt(1, ag.getData());
             stmt.setInt(2, ag.getHora());
             stmt.setInt(3, ag.getIdDoador());
