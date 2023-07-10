@@ -56,4 +56,25 @@ public class CidadesDAO {
     }
     
     
+      public void Excluir (cidades a) {
+
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = conn.prepareStatement("DELETE from cidades WHERE cidadesList = ?"); 
+            stmt.setInt(3, a.getId());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    
+    
+    
 }

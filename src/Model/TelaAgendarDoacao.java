@@ -4,6 +4,8 @@
  */
 package Model;
 
+import Controller.AgendamentosDAO;
+
 /**
  *
  * @author alan.valler
@@ -245,6 +247,16 @@ public class TelaAgendarDoacao extends javax.swing.JFrame {
     }//GEN-LAST:event_bAlterarActionPerformed
 
     private void bExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluirActionPerformed
+
+        Agendamentos a = new Agendamentos();
+        AgendamentosDAO DAO = new AgendamentosDAO();
+
+        a.setId(Integer.parseInt(txID.getText()) );
+        
+
+        DAO.Excluir(a);
+       
+
         // TODO add your handling code here:
     }//GEN-LAST:event_bExcluirActionPerformed
 
