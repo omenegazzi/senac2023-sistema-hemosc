@@ -5,7 +5,7 @@ CREATE TABLE login(
 id_usuario INT NOT NULL AUTO_INCREMENT,
 usuario VARCHAR(30) NOT NULL,
 senha VARCHAR(30) NOT NULL,
-PRIMARY KEY (usuario)
+PRIMARY KEY (id_usuario)
 );
 
 CREATE TABLE cidades(
