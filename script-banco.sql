@@ -2,6 +2,7 @@ CREATE DATABASE db_hemosc;
 use db_hemosc;
 
 CREATE TABLE login(
+id_usuario INT NOT NULL AUTO_INCREMENT,
 usuario VARCHAR(30) NOT NULL,
 senha VARCHAR(30) NOT NULL,
 PRIMARY KEY (usuario)
