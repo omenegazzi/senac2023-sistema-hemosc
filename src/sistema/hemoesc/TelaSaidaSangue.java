@@ -67,6 +67,11 @@ public class TelaSaidaSangue extends javax.swing.JFrame {
         jLabel5.setText("Entidade:");
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         btnAlterar.setText("Alterar");
 
@@ -77,6 +82,11 @@ public class TelaSaidaSangue extends javax.swing.JFrame {
         btnFechar.setText("Fechar");
 
         btnCadatrar.setText("Cadastrar");
+        btnCadatrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadatrarActionPerformed(evt);
+            }
+        });
 
         tbTabelaDados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,8 +100,6 @@ public class TelaSaidaSangue extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(tbTabelaDados);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\guest01\\Pictures\\pngwing.com (3).png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -204,6 +212,14 @@ public class TelaSaidaSangue extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnCadatrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadatrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadatrarActionPerformed
     
             
             

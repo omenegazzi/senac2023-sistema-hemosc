@@ -62,6 +62,12 @@ public class telaCidades extends javax.swing.JFrame {
 
         jButton6.setText("Pesquisar");
 
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         tAutores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -151,6 +157,10 @@ public class telaCidades extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tAutoresMouseClicked
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -196,16 +206,10 @@ public class telaCidades extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTable tAutores;
-    private javax.swing.JTable tEditoras;
-    private javax.swing.JTable tEditoras1;
-    private javax.swing.JTable tEditoras2;
     // End of variables declaration//GEN-END:variables
 }
