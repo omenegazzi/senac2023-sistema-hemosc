@@ -23,12 +23,24 @@ import javax.swing.JOptionPane;
 public class AgendamentosDAO {
 
     private List<Agendamentos> agendamentosList = new ArrayList();
-
+    private String ListSQL = "SELECT * from cidades";
+    
     public List<Agendamentos> getAgendamentosList() {
         return agendamentosList;
     }
 
-    public List<Agendamentos> listar() {
+    public void setListSQL(String ListSQL) {
+        this.ListSQL = ListSQL;
+    }
+    
+    public List<Agendamentos> listar(){
+        setListSQL("SELECT * from cidades");
+        gerarLista();
+        
+        return getAgendamentosList();
+    }
+    
+    public void gerarLista() {
 
         getAgendamentosList().clear(); //Limpando a lista
 
@@ -39,7 +51,7 @@ public class AgendamentosDAO {
 
         try {
             //Executando SQL no banco
-            stmt = conn.prepareStatement("SELECT * from cidades");
+            stmt = conn.prepareStatement(ListSQL);
             rs = stmt.executeQuery();
 
             //Registrando os valores do banco no objeto
@@ -57,8 +69,6 @@ public class AgendamentosDAO {
         } catch (SQLException ex) {
             Logger.getLogger(AgendamentosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //Retornando Lista
-        return getAgendamentosList();
     }
 
     public void salvar(Agendamentos ag) {
