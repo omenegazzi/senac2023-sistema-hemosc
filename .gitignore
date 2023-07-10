@@ -1,7 +1,9 @@
+/build/
+/nbproject/private/
+/build/
+/nbproject/private/
 <<<<<<< Upstream, based on origin/Develop
-/build/
-/nbproject/private/
+
 =======
-/build/
-/nbproject/private/
+
 >>>>>>> b71c144 aaaaaaaaaaaaaaaaaaaaaaa
