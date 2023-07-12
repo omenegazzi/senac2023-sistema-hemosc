@@ -97,5 +97,22 @@ public class AgendamentosDAO {
             Logger.getLogger(AgendamentosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+     public void Excluir(Agendamentos a) {
 
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = conn.prepareStatement("DELETE from Agendamento WHERE id_agendamento = ?");
+            stmt.setInt(1, a.getId());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AgendamentosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }
