@@ -15,6 +15,7 @@ public class telaCidades extends javax.swing.JFrame {
      */
     public telaCidades() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -41,7 +42,7 @@ public class telaCidades extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tAutores = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Codigo do IBGE");
 

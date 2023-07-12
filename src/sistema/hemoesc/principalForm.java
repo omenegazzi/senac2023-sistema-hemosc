@@ -4,6 +4,8 @@
  */
 package sistema.hemoesc;
 
+import Model.TelaAgendarDoacao;
+
 /**
  *
  * @author guest01
@@ -15,6 +17,8 @@ public class principalForm extends javax.swing.JFrame {
      */
     public principalForm() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setExtendedState(principalForm.MAXIMIZED_BOTH);
     }
 
     /**
@@ -35,15 +39,32 @@ public class principalForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Cadastros");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
-        jMenuItem2.setText("Usuários");
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cidade.png"))); // NOI18N
+        jMenuItem2.setText("Cidades");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Movimentações");
 
-        jMenuItem1.setText("Doação");
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agendamento.jpg"))); // NOI18N
+        jMenuItem1.setText("Agendamento");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem1);
 
         jMenuBar1.add(jMenu2);
@@ -63,6 +84,20 @@ public class principalForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        telaCidades cidades = new telaCidades();
+        cidades.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        TelaAgendarDoacao agendamento = new TelaAgendarDoacao();
+        agendamento.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
