@@ -1,3 +1,7 @@
+<<<<<<< OURS
+/build/
+/nbproject/private/
+=======
 /build/
 /nbproject/private/
 /build/
@@ -7,3 +11,4 @@
 =======
 
 >>>>>>> b71c144 aaaaaaaaaaaaaaaaaaaaaaa
+>>>>>>> THEIRS
