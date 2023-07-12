@@ -55,8 +55,7 @@ public class CidadesDAO {
         return getCidadesList();
     }
     
-    
-      public void Excluir (cidades a) {
+          public void Excluir (cidades a) {
 
         Connection conn = conexaoMysql.conexao();
         PreparedStatement stmt = null;
@@ -73,8 +72,4 @@ public class CidadesDAO {
         }
 
     }
-
-    
-    
-    
 }
