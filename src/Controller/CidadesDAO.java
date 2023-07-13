@@ -94,4 +94,25 @@ public class CidadesDAO {
             Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void salvar(cidades a) {
+
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = conn.prepareStatement("INSERT INTO cidades (codigo_ibge, descricao, uf) VALUES (?,?,?)");
+            stmt.setInt(1, a.getCodigoIbge());
+            stmt.setString(2, a.getDescricao());
+            stmt.setString(3, a.getUf());
+
+            stmt.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Cidade Salva com Sucesso!");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }       
 }
