@@ -7,6 +7,7 @@ package Controller;
 import Connection.conexaoMysql;
 import Model.Agendamentos;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -65,9 +66,10 @@ public class AgendamentosDAO {
             while (rs.next()) {
                 Agendamentos ag = new Agendamentos();
                 ag.setId(rs.getInt("id_agendamento"));
-                ag.setData(Integer.parseInt(rs.getDate("data").toString()));
-                ag.setHora(Integer.parseInt(rs.getTime("hora").toString()));
                 ag.setIdDoador(rs.getInt("fk_doadores_id_doador"));
+                ag.setData(rs.getDate("data"));
+                ag.setHora(rs.getTime("hora"));
+
 
                 //Adicionando objeto na lista
                 getAgendamentosList().add(ag);
@@ -84,11 +86,12 @@ public class AgendamentosDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = conn.prepareStatement("INSERT INTO agendamentos(data,hora,fk_doadores_id_doador) VALUES(?,?,?)");
-            stmt.setInt(1, ag.getData());
-            stmt.setInt(2, ag.getHora());
-            stmt.setInt(3, ag.getIdDoador());
-
+            stmt = conn.prepareStatement("INSERT INTO agendamentos(fk_doadores_id_doador, doador, data,hora,) VALUES(?,?,?,?)");
+            stmt.setInt(1, ag.getId());
+            stmt.setInt(2, ag.getIdDoador());
+            stmt.setDate(2, (Date) ag.getData());
+            stmt.setDate(3, (Date) ag.getHora());
+            
             stmt.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Agendamento Salvo com Sucesso!");
@@ -115,4 +118,37 @@ public class AgendamentosDAO {
         }
 
     }
+     
+     public List<Agendamentos> pesquisar(String texto) {
+
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Agendamentos> Agendamentos = new ArrayList();
+
+        try {
+            stmt = conn.prepareStatement("SELECT * from agendamento WHERE nome like ?");
+            stmt.setString(1, '%' + texto + '%');
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Agendamentos ag = new Agendamentos ();
+                ag.setId(rs.getInt("id_agendamento"));
+                ag.setDoador(rs.getString("fk_doadores_id_doador"));
+                ag.setData(rs.getDate("data"));
+                ag.setHora(rs.getDate("hora"));
+
+                Agendamentos.add(ag);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AgendamentosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return Agendamentos;
+    }
+     
+     
 }
