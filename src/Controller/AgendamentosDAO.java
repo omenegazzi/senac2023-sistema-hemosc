@@ -31,7 +31,7 @@ public class AgendamentosDAO {
         return agendamentosList;
     }
 
-    public void setListSQL(String ListSQL) {
+    private void setListSQL(String ListSQL) {
         this.ListSQL = ListSQL;
     }
     
@@ -119,37 +119,4 @@ public class AgendamentosDAO {
         }
 
     }
-     
-     public List<Agendamentos> pesquisar(String texto) {
-
-        Connection conn = conexaoMysql.conexao();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-
-        List<Agendamentos> Agendamentos = new ArrayList();
-
-        try {
-            stmt = conn.prepareStatement("SELECT * from agendamento WHERE nome like ?");
-            stmt.setString(1, '%' + texto + '%');
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                Agendamentos ag = new Agendamentos ();
-                ag.setId(rs.getInt("id_agendamento"));
-                ag.setDoador(rs.getString("fk_doadores_id_doador"));
-                ag.setData(rs.getDate("data"));
-                ag.setHora(rs.getDate("hora"));
-
-                Agendamentos.add(ag);
-
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(AgendamentosDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return Agendamentos;
-    }
-     
-     
 }

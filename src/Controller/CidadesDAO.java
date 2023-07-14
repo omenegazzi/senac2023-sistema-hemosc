@@ -23,12 +23,31 @@ import javax.swing.JOptionPane;
 public class CidadesDAO {
 
     private List<cidades> cidadesList = new ArrayList();
-
-    public List<cidades> getCidadesList() {
+    private String ListSQL = "SELECT * from cidades";
+    
+    private List<cidades> getCidadesList() {
         return cidadesList;
     }
 
-    public List<cidades> listar() {
+    private void setListSQL(String ListSQL) {
+        this.ListSQL = ListSQL;
+    }
+    
+    public List<cidades> listar(){
+        setListSQL("SELECT * from cidades");
+        gerarLista();
+        
+        return getCidadesList();
+    }
+    
+    public List<cidades> pesquisar(String Campo,String Valor){
+        setListSQL("SELECT * from cidades where "+Campo+" = "+Valor);
+        gerarLista();
+        
+        return getCidadesList();
+    }
+    
+    private void gerarLista() {
 
         Connection conn = conexaoMysql.conexao();
         PreparedStatement stmt = null;
@@ -36,7 +55,7 @@ public class CidadesDAO {
 
         getCidadesList().clear();
         try {
-            stmt = conn.prepareStatement("SELECT * from cidades");
+            stmt = conn.prepareStatement(ListSQL);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -53,7 +72,6 @@ public class CidadesDAO {
             Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return getCidadesList();
     }
 
     public void Excluir(cidades a) {
