@@ -40,43 +40,43 @@ public class principalForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnCadastros = new javax.swing.JMenu();
+        mniCidade = new javax.swing.JMenuItem();
+        mnMovimentacoes = new javax.swing.JMenu();
+        mniAgendamento = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Cadastros");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+        mnCadastros.setText("Cadastros");
+        mnCadastros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
+                mnCadastrosActionPerformed(evt);
             }
         });
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cidade.png"))); // NOI18N
-        jMenuItem2.setText("Cidades");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        mniCidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cidade.png"))); // NOI18N
+        mniCidade.setText("Cidades");
+        mniCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                mniCidadeActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        mnCadastros.add(mniCidade);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(mnCadastros);
 
-        jMenu2.setText("Movimentações");
+        mnMovimentacoes.setText("Movimentações");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agendamento.jpg"))); // NOI18N
-        jMenuItem1.setText("Agendamento");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mniAgendamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agendamento.jpg"))); // NOI18N
+        mniAgendamento.setText("Agendamento");
+        mniAgendamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mniAgendamentoActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        mnMovimentacoes.add(mniAgendamento);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(mnMovimentacoes);
 
         setJMenuBar(jMenuBar1);
 
@@ -94,19 +94,19 @@ public class principalForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+    private void mnCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnCadastrosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu1ActionPerformed
+    }//GEN-LAST:event_mnCadastrosActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void mniCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniCidadeActionPerformed
         telaCidades cidades = new telaCidades();
         cidades.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_mniCidadeActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mniAgendamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgendamentoActionPerformed
         TelaAgendarDoacao agendamento = new TelaAgendarDoacao();
         agendamento.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mniAgendamentoActionPerformed
 
 
     /**
@@ -145,10 +145,10 @@ public class principalForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu mnCadastros;
+    private javax.swing.JMenu mnMovimentacoes;
+    private javax.swing.JMenuItem mniAgendamento;
+    private javax.swing.JMenuItem mniCidade;
     // End of variables declaration//GEN-END:variables
 }

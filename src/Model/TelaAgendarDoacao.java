@@ -41,7 +41,7 @@ public final class TelaAgendarDoacao extends javax.swing.JFrame {
         DefaultTableModel tabela = (DefaultTableModel) tbTabela.getModel();
         tabela.setNumRows(0);
 
-        for (Agendamentos ag : dao.pesquisar(txPesquisa.getText())) {
+        for (Agendamentos ag : dao.pesquisar("",txPesquisa.getText())) {
             tabela.addRow(new Object[]{
             ag.getId(),
             ag.getIdDoador(),
