@@ -31,7 +31,6 @@
                           <Component id="lblUser" min="-2" pref="54" max="-2" attributes="0"/>
                           <Component id="txtUser" min="-2" pref="130" max="-2" attributes="0"/>
                           <Component id="lblSenha" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="txtSenha" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -40,6 +39,10 @@
                           <Component id="btnCadastroUser" max="32767" attributes="0"/>
                           <Component id="btnAcessar" max="32767" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtSenha" min="-2" pref="130" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -55,9 +58,9 @@
               <Component id="txtUser" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lblSenha" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="txtSenha" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="btnAcessar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnCadastroUser" min="-2" max="-2" attributes="0"/>
@@ -79,12 +82,13 @@
         <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSenha">
-    </Component>
     <Component class="javax.swing.JButton" name="btnAcessar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Entrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAcessarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCadastroUser">
       <Properties>
@@ -93,6 +97,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastroUserActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSenha">
     </Component>
   </SubComponents>
 </Form>
