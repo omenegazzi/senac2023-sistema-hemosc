@@ -25,7 +25,7 @@ public class CidadesDAO {
     private List<cidades> cidadesList = new ArrayList();
     private String ListSQL = "SELECT * from cidades";
     
-    private List<cidades> getCidadesList() {
+    public List<cidades> getCidadesList() {
         return cidadesList;
     }
 
