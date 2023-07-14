@@ -54,13 +54,5 @@ public class saidassangue {
     public void setQuantidade(String quantidade) {
         this.quantidade = quantidade;
     }
-
-    public void setTipodesangue(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setEntidade(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
 }
