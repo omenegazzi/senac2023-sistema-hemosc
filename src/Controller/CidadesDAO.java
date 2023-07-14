@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -71,5 +72,26 @@ public class CidadesDAO {
             Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+        
+    public void alterar(cidades a) {
+
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = conn.prepareStatement("UPDATE autores set descricao = ?, uf = ?, codigo_ibge = ? WHERE id_cidade = ? ");
+            stmt.setString(1, a.getDescricao());
+            stmt.setString(2, a.getUf());
+            stmt.setInt(3, a.getCodigoIbge());
+
+            stmt.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Cidade Alterado com Sucesso!");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
