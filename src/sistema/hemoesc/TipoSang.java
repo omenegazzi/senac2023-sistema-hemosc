@@ -323,10 +323,10 @@ public class TipoSang extends javax.swing.JFrame {
 
     private void tTiposSanguineosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tTiposSanguineosMouseClicked
         if(DadosCarregados == true){
-            txtId.setText(tTiposSanguineos.getValueAt(tTiposSanguineos.getSelectedRow(), 1).toString());
-            txtDescricao.setText(tTiposSanguineos.getValueAt(tTiposSanguineos.getSelectedRow(), 2).toString());
-            txtEstoque.setText(tTiposSanguineos.getValueAt(tTiposSanguineos.getSelectedRow(), 4).toString());
-            txtFatorRh.setText(tTiposSanguineos.getValueAt(tTiposSanguineos.getSelectedRow(), 3).toString());
+            txtId.setText(tTiposSanguineos.getValueAt(tTiposSanguineos.getSelectedRow(), 0).toString());
+            txtDescricao.setText(tTiposSanguineos.getValueAt(tTiposSanguineos.getSelectedRow(), 1).toString());
+            txtEstoque.setText(tTiposSanguineos.getValueAt(tTiposSanguineos.getSelectedRow(), 3).toString());
+            txtFatorRh.setText(tTiposSanguineos.getValueAt(tTiposSanguineos.getSelectedRow(), 2).toString());
         }
     }//GEN-LAST:event_tTiposSanguineosMouseClicked
 
