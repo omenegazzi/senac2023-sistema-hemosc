@@ -81,19 +81,21 @@ public class CidadesDAO {
         ResultSet rs = null;
 
         try {
-            stmt = conn.prepareStatement("UPDATE autores set descricao = ?, uf = ?, codigo_ibge = ? WHERE id_cidade = ? ");
-            stmt.setString(1, a.getDescricao());
-            stmt.setString(2, a.getUf());
-            stmt.setInt(3, a.getCodigoIbge());
+            stmt = conn.prepareStatement("UPDATE cidades set codigo_ibge = ?, descricao = ?, uf = ? WHERE id_cidade = ? ");
+            stmt.setInt(1, a.getCodigoIbge());
+            stmt.setString(2, a.getDescricao());
+            stmt.setString(3, a.getUf());
+            stmt.setInt(4, a.getId());
 
             stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Cidade Alterado com Sucesso!");
+            JOptionPane.showMessageDialog(null, "Cidade Alterada com Sucesso!");
 
         } catch (SQLException ex) {
             Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 
     public void salvar(cidades a) {
 

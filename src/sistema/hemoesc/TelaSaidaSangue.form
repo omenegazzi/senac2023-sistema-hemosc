@@ -48,6 +48,8 @@
             <EtchetBorder/>
           </Border>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Sa&#xed;da de Sangue"/>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
 
       <Layout>
