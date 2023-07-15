@@ -191,10 +191,7 @@
                               <Component id="txtDescricao" alignment="0" min="-2" pref="339" max="-2" attributes="0"/>
                               <Component id="txtEstoque" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                               <Component id="txtEstoqueMin" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtFatorRh" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtFatorRh" alignment="0" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

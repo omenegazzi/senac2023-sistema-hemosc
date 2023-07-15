@@ -21,6 +21,7 @@ public class TipoSang extends javax.swing.JFrame {
      */
     public TipoSang() {
         initComponents();
+        CarregarDados();
     }
 
     private void CarregarDados(){
