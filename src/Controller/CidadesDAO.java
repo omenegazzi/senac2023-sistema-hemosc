@@ -81,7 +81,7 @@ public class CidadesDAO {
         ResultSet rs = null;
 
         try {
-            stmt = conn.prepareStatement("DELETE from cidades WHERE cidadesList = ?");
+            stmt = conn.prepareStatement("DELETE from cidades WHERE id_cidade = ?");
             stmt.setInt(1, a.getId());
 
             stmt.executeUpdate();
