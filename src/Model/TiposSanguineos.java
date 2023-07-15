@@ -2,6 +2,18 @@ package Model;
 
 public class TiposSanguineos {
 
+    private int Id;
+    private int Estoque;
+    private String Descricao, Fator_rh;
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+    
     public int getEstoque() {
         return Estoque;
     }
@@ -23,8 +35,7 @@ public class TiposSanguineos {
     }
 
     public void setFator_rh(String fator_rh) {
-        this.Fator_rh = Fator_rh;
+        this.Fator_rh = fator_rh;
     }
-    private int Estoque;
-    private String Descricao, Fator_rh;
+   
 }
