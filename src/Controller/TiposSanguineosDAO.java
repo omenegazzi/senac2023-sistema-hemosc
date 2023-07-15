@@ -107,7 +107,7 @@ public class TiposSanguineosDAO {
             stmt.setString(1, ts.getDescricao());
             stmt.setString(2, ts.getFator_rh());
             stmt.setInt(3, ts.getEstoque());
-            stmt.setInt(4, ts.getId);
+            stmt.setInt(4, ts.getId());
 
             stmt.executeUpdate();
 
