@@ -4,12 +4,12 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="mnCadastros">
+        <Menu class="javax.swing.JMenu" name="mn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastros"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnCadastrosActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnActionPerformed"/>
           </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mniCidade">
@@ -21,6 +21,22 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniCidadeActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnUsuarios">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Usu&#xe1;rios"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnUsuariosActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mnEntidade">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Entidades"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnEntidadeActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -42,6 +58,14 @@
               </Events>
             </MenuItem>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="mnRelatorio">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Relatorio"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnRelatorioActionPerformed"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>
