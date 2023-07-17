@@ -108,11 +108,13 @@ public class principalForm extends javax.swing.JFrame {
     private void mniCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniCidadeActionPerformed
         telaCidades cidades = new telaCidades();
         cidades.setVisible(true);
+        cidades.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_mniCidadeActionPerformed
 
     private void mniAgendamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgendamentoActionPerformed
         TelaAgendarDoacao agendamento = new TelaAgendarDoacao();
         agendamento.setVisible(true);
+        agendamento.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_mniAgendamentoActionPerformed
 
     private void mniTiposSangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniTiposSangActionPerformed

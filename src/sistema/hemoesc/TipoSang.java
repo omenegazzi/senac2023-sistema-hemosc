@@ -360,6 +360,7 @@ public class TipoSang extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
+        txtId.setText("0");
         dao.salvar(SetarDados());
         Limpar();
     }//GEN-LAST:event_bCadastrarActionPerformed
