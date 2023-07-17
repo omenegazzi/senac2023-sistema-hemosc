@@ -137,4 +137,56 @@ public class TiposSanguineosDAO {
 
     }
     
+      
+    public void AumentarEstoque(TiposSanguineos ts,int Quantidade){
+        int Est = GetEstoque(ts.getId());
+        
+        Est = Est+Quantidade;
+        SetarEstoque(Est,ts.getId()); 
+    }
+    
+    public void DiminuirEstoque(TiposSanguineos ts,int Quantidade){
+        int Est = GetEstoque(ts.getId());
+        
+        Est = Est-Quantidade;
+        SetarEstoque(Est,ts.getId()); 
+    }
+    
+    private int GetEstoque(int id){
+        
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        int temp = 0;
+        
+        try {
+            stmt = conn.prepareStatement("SELECT estoque from tipos_sanguineos where id_tipo_sanguineo = ?");
+            stmt.setInt(1,id);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                temp = rs.getInt("estoque");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return temp;
+    }
+    
+    private void SetarEstoque(int EstoqueNovo, int id){
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conn.prepareStatement("UPDATE tipos_sanguineos set estoque = ? WHERE id_tipo_sanguineo = ?");
+            stmt.setInt(1, EstoqueNovo);
+            stmt.setInt(2, id);
+
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(TiposSanguineosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
