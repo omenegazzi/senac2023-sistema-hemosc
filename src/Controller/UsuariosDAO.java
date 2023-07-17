@@ -26,7 +26,7 @@ public class UsuariosDAO {
                 if(count > 0){
                     JOptionPane.showMessageDialog(null, "Usuário já cadastrado");
                 }else if (senha.equals(confirmaSenha)){
-                    stmt = conn.prepareStatement("INSERT INTO login VALUES (?, ?)");
+                    stmt = conn.prepareStatement("INSERT INTO login (usuario, senha) VALUES (?,?)");
                     stmt.setString(1, usuario);
                     stmt.setString(2, senha);
 

@@ -135,5 +135,54 @@ public class CidadesDAO {
             Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public List<cidades> pesquisar(String texto) {
 
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<cidades> autores = new ArrayList();
+
+        try {
+            stmt = conn.prepareStatement("SELECT * from cidades where codigo_ibge like ? ");
+            
+        
+            stmt.setString(1,'%' + texto + '%');
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                cidades a = new cidades();
+                a.setId(rs.getInt("id_cidade"));
+                a.setCodigoIbge(rs.getInt("codigo_ibge"));
+                a.setDescricao(rs.getString("descricao"));
+                a.setUf(rs.getString("uf"));
+
+                autores.add(a);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return autores;
+    }
+     public void excluir(cidades a) {
+
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = conn.prepareStatement("DELETE from cidades WHERE id_cidade = ? ");    
+            stmt.setInt(1, a.getId());
+
+            stmt.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Cidade Excluído com Sucesso!");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
