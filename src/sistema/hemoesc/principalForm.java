@@ -42,6 +42,7 @@ public class principalForm extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         mnCadastros = new javax.swing.JMenu();
         mniCidade = new javax.swing.JMenuItem();
+        mniTiposSang = new javax.swing.JMenuItem();
         mnMovimentacoes = new javax.swing.JMenu();
         mniAgendamento = new javax.swing.JMenuItem();
 
@@ -54,7 +55,6 @@ public class principalForm extends javax.swing.JFrame {
             }
         });
 
-        mniCidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cidade.png"))); // NOI18N
         mniCidade.setText("Cidades");
         mniCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,11 +63,18 @@ public class principalForm extends javax.swing.JFrame {
         });
         mnCadastros.add(mniCidade);
 
+        mniTiposSang.setText("Tipos Sanguineos");
+        mniTiposSang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniTiposSangActionPerformed(evt);
+            }
+        });
+        mnCadastros.add(mniTiposSang);
+
         jMenuBar1.add(mnCadastros);
 
         mnMovimentacoes.setText("Movimentações");
 
-        mniAgendamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agendamento.jpg"))); // NOI18N
         mniAgendamento.setText("Agendamento");
         mniAgendamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +114,12 @@ public class principalForm extends javax.swing.JFrame {
         TelaAgendarDoacao agendamento = new TelaAgendarDoacao();
         agendamento.setVisible(true);
     }//GEN-LAST:event_mniAgendamentoActionPerformed
+
+    private void mniTiposSangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniTiposSangActionPerformed
+        TipoSang tipoSang = new TipoSang();
+        tipoSang.setVisible(true);
+        tipoSang.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_mniTiposSangActionPerformed
 
 
     /**
@@ -150,5 +163,6 @@ public class principalForm extends javax.swing.JFrame {
     private javax.swing.JMenu mnMovimentacoes;
     private javax.swing.JMenuItem mniAgendamento;
     private javax.swing.JMenuItem mniCidade;
+    private javax.swing.JMenuItem mniTiposSang;
     // End of variables declaration//GEN-END:variables
 }
