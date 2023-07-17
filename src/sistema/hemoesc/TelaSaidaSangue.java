@@ -53,6 +53,8 @@ public class TelaSaidaSangue extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setToolTipText("Saída de Sangue");
+        jPanel1.setName(""); // NOI18N
 
         jLabel1.setText("Cód. da Saída:");
 
