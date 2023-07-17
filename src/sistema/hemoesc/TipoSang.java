@@ -5,27 +5,60 @@
 package sistema.hemoesc;
 
 import Controller.TiposSanguineosDAO;
+import Model.Pesquisa;
 import Model.TiposSanguineos;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author alan.valler
+ * @author MuriloComim
  */
 public class TipoSang extends javax.swing.JFrame {
 
     private TiposSanguineosDAO dao = new TiposSanguineosDAO();
     private boolean DadosCarregados = false;
+    private boolean Pesquisar = false;
     /**
      * Creates new form TipoSang
      */
     public TipoSang() {
         initComponents();
+        
+        CarregarCampos();
         CarregarDados();
+    }
+    
+    private void CarregarCampos(){
+        Pesquisa pesq = new Pesquisa();
+        pesq.setCampo("ID");
+        pesq.setCampoDb("id_tipo_sanguineo");
+        cbCampoPesq.addItem(pesq);
+
+        Pesquisa pesq2 = new Pesquisa();
+        pesq2.setCampo("Descrição");
+        pesq2.setCampoDb("descricao");
+        cbCampoPesq.addItem(pesq2);
+        
+        Pesquisa pesq3 = new Pesquisa();
+        pesq3.setCampo("Fator Rh");
+        pesq3.setCampoDb("fator_rh");
+        cbCampoPesq.addItem(pesq3);
+        
+        Pesquisa pesq4 = new Pesquisa();
+        pesq4.setCampo("Estoque");
+        pesq4.setCampoDb("estoque");
+        cbCampoPesq.addItem(pesq4);
     }
 
     private void CarregarDados(){
-        dao.listar();
+        DadosCarregados = false;
+        
+        if(Pesquisar == false)
+            dao.listar();
+        else{
+            Pesquisa pesq = (Pesquisa) cbCampoPesq.getSelectedItem();
+            dao.pesquisar(pesq.getCampoDb(), txPesquisa.getText());
+        }
         TiposSanguineos ts;
         DefaultTableModel tabela = (DefaultTableModel) tTiposSanguineos.getModel();
         tabela.setNumRows(0);
@@ -40,8 +73,31 @@ public class TipoSang extends javax.swing.JFrame {
                ts.getEstoque()
            });
         }
-        
+       
         DadosCarregados = true;
+    }
+    
+    private void Limpar(){
+        Pesquisar = false;
+        txtDescricao.setText("");
+        txtEstoque.setText("");
+        txtFatorRh.setText("");
+        txtId.setText("");
+        txtEstoqueMin.setText("");
+        txPesquisa.setText("");
+        
+        CarregarDados();
+    }
+    
+    private TiposSanguineos SetarDados(){
+        TiposSanguineos ts = new TiposSanguineos();
+        
+        ts.setId(Integer.parseInt(txtId.getText()));
+        ts.setDescricao(txtDescricao.getText());
+        ts.setEstoque(Integer.parseInt(txtEstoque.getText()));
+        ts.setFator_rh(txtFatorRh.getText());
+        
+        return ts;
     }
     
     /**
@@ -58,6 +114,7 @@ public class TipoSang extends javax.swing.JFrame {
         txPesquisa = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tTiposSanguineos = new javax.swing.JTable();
+        cbCampoPesq = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
@@ -82,6 +139,11 @@ public class TipoSang extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         bPesquisar.setText("Pesquisar");
+        bPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPesquisarActionPerformed(evt);
+            }
+        });
 
         tTiposSanguineos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,7 +155,15 @@ public class TipoSang extends javax.swing.JFrame {
             new String [] {
                 "ID", "Descrição", "Fator Rh", "Estoque"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tTiposSanguineos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tTiposSanguineosMouseClicked(evt);
@@ -111,6 +181,8 @@ public class TipoSang extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txPesquisa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbCampoPesq, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(bPesquisar)))
                 .addGap(18, 18, 18))
@@ -121,7 +193,8 @@ public class TipoSang extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bPesquisar)
-                    .addComponent(txPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbCampoPesq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
@@ -133,6 +206,9 @@ public class TipoSang extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setText("ID");
+
+        txtId.setEditable(false);
+        txtId.setEnabled(false);
 
         jLabel3.setText("DESCRIÇÃO");
 
@@ -215,13 +291,11 @@ public class TipoSang extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEstoqueMin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtFatorRh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(267, 267, 267)))))
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFatorRh, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -294,23 +368,27 @@ public class TipoSang extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
-        // TODO add your handling code here:
+        txtId.setText("0");
+        dao.salvar(SetarDados());
+        Limpar();
     }//GEN-LAST:event_bCadastrarActionPerformed
 
     private void bAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAlterarActionPerformed
-        // TODO add your handling code here:
+        dao.alterar(SetarDados());
+        Limpar();
     }//GEN-LAST:event_bAlterarActionPerformed
 
     private void bExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluirActionPerformed
-        // TODO add your handling code here:
+        dao.Excluir(SetarDados());
+        Limpar();
     }//GEN-LAST:event_bExcluirActionPerformed
 
     private void bLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparActionPerformed
-        // TODO add your handling code here:
+        Limpar();
     }//GEN-LAST:event_bLimparActionPerformed
 
     private void bSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSairActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_bSairActionPerformed
 
     private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
@@ -329,6 +407,11 @@ public class TipoSang extends javax.swing.JFrame {
             txtFatorRh.setText(tTiposSanguineos.getValueAt(tTiposSanguineos.getSelectedRow(), 2).toString());
         }
     }//GEN-LAST:event_tTiposSanguineosMouseClicked
+
+    private void bPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPesquisarActionPerformed
+        Pesquisar = true;
+        CarregarDados();
+    }//GEN-LAST:event_bPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,6 +455,7 @@ public class TipoSang extends javax.swing.JFrame {
     private javax.swing.JButton bLimpar;
     private javax.swing.JButton bPesquisar;
     private javax.swing.JButton bSair;
+    private javax.swing.JComboBox<Object> cbCampoPesq;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

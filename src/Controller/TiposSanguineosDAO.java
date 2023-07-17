@@ -41,7 +41,7 @@ public class TiposSanguineosDAO {
     }
     
     public List<TiposSanguineos> pesquisar(String Campo,String Valor){
-        setListSQL("SELECT * from tipos_sanguineos where "+Campo+" = "+Valor);
+        setListSQL("SELECT * from tipos_sanguineos where "+Campo+" = '"+Valor+"'");
         gerarLista();
         
         return getTiposSanguineosList();

@@ -40,20 +40,17 @@ public class principalForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        mn = new javax.swing.JMenu();
+        mnCadastros = new javax.swing.JMenu();
         mniCidade = new javax.swing.JMenuItem();
-        mnUsuarios = new javax.swing.JMenuItem();
-        mnEntidade = new javax.swing.JMenuItem();
         mnMovimentacoes = new javax.swing.JMenu();
         mniAgendamento = new javax.swing.JMenuItem();
-        mnRelatorio = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mn.setText("Cadastros");
-        mn.addActionListener(new java.awt.event.ActionListener() {
+        mnCadastros.setText("Cadastros");
+        mnCadastros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnActionPerformed(evt);
+                mnCadastrosActionPerformed(evt);
             }
         });
 
@@ -64,25 +61,9 @@ public class principalForm extends javax.swing.JFrame {
                 mniCidadeActionPerformed(evt);
             }
         });
-        mn.add(mniCidade);
+        mnCadastros.add(mniCidade);
 
-        mnUsuarios.setText("Usuários");
-        mnUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnUsuariosActionPerformed(evt);
-            }
-        });
-        mn.add(mnUsuarios);
-
-        mnEntidade.setText("Entidades");
-        mnEntidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnEntidadeActionPerformed(evt);
-            }
-        });
-        mn.add(mnEntidade);
-
-        jMenuBar1.add(mn);
+        jMenuBar1.add(mnCadastros);
 
         mnMovimentacoes.setText("Movimentações");
 
@@ -96,14 +77,6 @@ public class principalForm extends javax.swing.JFrame {
         mnMovimentacoes.add(mniAgendamento);
 
         jMenuBar1.add(mnMovimentacoes);
-
-        mnRelatorio.setText("Relatorio");
-        mnRelatorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnRelatorioActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(mnRelatorio);
 
         setJMenuBar(jMenuBar1);
 
@@ -121,40 +94,20 @@ public class principalForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mniAgendamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgendamentoActionPerformed
-        TelaAgendarDoacao agendamento = new TelaAgendarDoacao();
-        agendamento.setVisible(true);
-    }//GEN-LAST:event_mniAgendamentoActionPerformed
-
-    private void mnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRelatorioActionPerformed
-        
-        Relatorio telaDeRelatorio = new Relatorio();
-        telaDeRelatorio.setVisible(true);
-        
-    }//GEN-LAST:event_mnRelatorioActionPerformed
-
-    private void mnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnActionPerformed
+    private void mnCadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnCadastrosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mnActionPerformed
+    }//GEN-LAST:event_mnCadastrosActionPerformed
 
     private void mniCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniCidadeActionPerformed
         telaCidades cidades = new telaCidades();
         cidades.setVisible(true);
     }//GEN-LAST:event_mniCidadeActionPerformed
 
-    private void mnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnUsuariosActionPerformed
-        
-        telaCadastroUsuario telaDeCadastroUsuario = new telaCadastroUsuario();
-        telaDeCadastroUsuario.setVisible(true);
-        
-    }//GEN-LAST:event_mnUsuariosActionPerformed
+    private void mniAgendamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgendamentoActionPerformed
+        TelaAgendarDoacao agendamento = new TelaAgendarDoacao();
+        agendamento.setVisible(true);
+    }//GEN-LAST:event_mniAgendamentoActionPerformed
 
-    private void mnEntidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEntidadeActionPerformed
-        
-        Tela_Entidades telaDeEntidade = new Tela_Entidades();
-        telaDeEntidade.setVisible(true);
-        
-    }//GEN-LAST:event_mnEntidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,11 +146,8 @@ public class principalForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu mn;
-    private javax.swing.JMenuItem mnEntidade;
+    private javax.swing.JMenu mnCadastros;
     private javax.swing.JMenu mnMovimentacoes;
-    private javax.swing.JMenu mnRelatorio;
-    private javax.swing.JMenuItem mnUsuarios;
     private javax.swing.JMenuItem mniAgendamento;
     private javax.swing.JMenuItem mniCidade;
     // End of variables declaration//GEN-END:variables
