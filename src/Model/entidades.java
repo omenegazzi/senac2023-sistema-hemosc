@@ -9,13 +9,9 @@ package Model;
  * @author murilo.comim
  */
 public class entidades {
-
-    public static void add(entidades a) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
     private int id;
-    private cidades Cidade;
+    private int CidadeId;
     private String nome;
     private String endereco;
 
@@ -27,12 +23,12 @@ public class entidades {
         this.id = id;
     }
 
-    public cidades getCidade() {
-        return Cidade;
+    public int getCidadeId() {
+        return CidadeId;
     }
 
-    public void setCidade(cidades Cidade) {
-        this.Cidade = Cidade;
+    public void setCidadeId(int CidadeId) {
+        this.CidadeId = CidadeId;
     }
 
     public String getNome() {
