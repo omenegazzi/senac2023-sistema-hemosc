@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.util.Date;
+
 /**
  *
  * @author murilo.comim
@@ -11,8 +13,8 @@ package Model;
 public class Agendamentos {
     
     private int id;
-    private int data;
-    private int hora;
+    private Date data;
+    private Date hora;
     private int idDoador;
 
     public int getId() {
@@ -23,22 +25,23 @@ public class Agendamentos {
         this.id = id;
     }
 
-    public int getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(int data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
-    public int getHora() {
+    public Date getHora() {
         return hora;
     }
 
-    public void setHora(int hora) {
+    public void setHora(Date hora) {
         this.hora = hora;
     }
-
+    
+    
     public int getIdDoador() {
         return idDoador;
     }
@@ -46,6 +49,9 @@ public class Agendamentos {
     public void setIdDoador(int idDoador) {
         this.idDoador = idDoador;
     }
-    
-    
+
+    public void setDoador(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+  
 }

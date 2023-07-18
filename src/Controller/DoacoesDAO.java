@@ -1,6 +1,7 @@
 package Controller;
 
 import Connection.conexaoMysql;
+import Model.Doacoes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

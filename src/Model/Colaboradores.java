@@ -1,51 +1,61 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Model;
 
+/**
+ *
+ * @author murilo.comim
+ */
 public class Colaboradores {
     
-    private int id;
-    private String nome;
+    private int Id;
+    private int IdCidade;
+    private String Nome;
     private String Endereco;
-    private String funcao;
+    private String Funcao;
 
     public int getId() {
-        return id;
+        return Id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
-    public String nome() {
-        return nome;
+    public int getIdCidade() {
+        return IdCidade;
     }
 
-    public void nome(String nome) {
-        this.nome = nome;
+    public void setIdCidade(int IdCidade) {
+        this.IdCidade = IdCidade;
+    }
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String Nome) {
+        this.Nome = Nome;
     }
 
     public String getEndereco() {
         return Endereco;
-  
     }
 
     public void setEndereco(String Endereco) {
         this.Endereco = Endereco;
     }
 
-    public String getfuncao() {
-        return funcao;
+    public String getFuncao() {
+        return Funcao;
     }
 
-    public void setfuncao(String funcao) {
-        this.funcao = funcao;
+    public void setFuncao(String Funcao) {
+        this.Funcao = Funcao;
     }
-
-    public void setNome(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setFuncao(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
+    
     
 }

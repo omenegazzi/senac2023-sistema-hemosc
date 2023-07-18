@@ -9,7 +9,7 @@ public class conexaoMysql {
     public static Connection conexao(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection("jdbc:mysql://localhost/db_hemosc?user=root&password=Bl4ckc@ffee13");
+            return DriverManager.getConnection("jdbc:mysql://localhost/db_hemosc?user=root&password=root");
                         
         } catch (ClassNotFoundException | SQLException ex) {            
            throw new RuntimeException("Erro ao conectar no banco", ex);

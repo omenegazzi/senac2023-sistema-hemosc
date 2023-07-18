@@ -6,6 +6,10 @@ package Controller;
 
 import Connection.conexaoMysql;
 import Model.Colaboradores;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
@@ -14,8 +18,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 public class ColaboradoresDAO {
+
 
     public List<Colaboradores> listar() {
 
@@ -51,4 +58,27 @@ public class ColaboradoresDAO {
         }
         return Colaboradores;
     }
+
+    public void salvar(Colaboradores col) {
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = conn.prepareStatement("INSERT INTO colaboradores (nome, enderece, cidade, funcao) (?,?,?,?)");
+            stmt.setString(1, col.getNome());
+            stmt.setString(2, col.getEndereco());
+            stmt.setInt(3, col.getIdCidade());
+            stmt.setString(4, col.getFuncao());
+
+            stmt.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Entidade Salva com Sucesso!");
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(ColaboradoresDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
 }
