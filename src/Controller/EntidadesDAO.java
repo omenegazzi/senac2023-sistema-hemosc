@@ -42,9 +42,15 @@ public class EntidadesDAO {
         return getEntidadesList();
     }
     
+    public List<entidades> pesquisar(String Campo,String Valor){
+        setListSQL("SELECT * from entidades where "+Campo+" = '"+Valor+"'");
+        gerarLista();
+        
+        return getEntidadesList();
+    }
     
     //Metodo gerarLista: gera a lista de entidades com base no listSQL podendo ser colocado filtros
-    public void gerarLista() {
+    private void gerarLista() {
 
         getEntidadesList().clear(); //Limpando a lista
 
