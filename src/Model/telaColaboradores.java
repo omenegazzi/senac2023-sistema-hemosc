@@ -4,6 +4,8 @@
  */
 package Model;
 
+import Controller.ColaboradoresDAO;
+
 /**
  *
  * @author alan.valler
@@ -264,6 +266,13 @@ public class telaColaboradores extends javax.swing.JFrame {
 
     private void bExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluirActionPerformed
         // TODO add your handling code here:
+        Colaboradores a = new Colaboradores();
+        ColaboradoresDAO dao = new ColaboradoresDAO();
+        
+        a.setId(Integer.parseInt(tfID.getText()));
+
+        dao.excluir(a);
+        carregarDados();
     }//GEN-LAST:event_bExcluirActionPerformed
 
     private void bLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparActionPerformed
