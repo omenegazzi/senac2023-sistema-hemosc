@@ -141,7 +141,7 @@ public class CidadesDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<cidades> autores = new ArrayList();
+        List<cidades> cidades = new ArrayList();
 
         try {
             stmt = conn.prepareStatement("SELECT * from cidades where codigo_ibge like ? ");
@@ -157,7 +157,7 @@ public class CidadesDAO {
                 a.setDescricao(rs.getString("descricao"));
                 a.setUf(rs.getString("uf"));
 
-                autores.add(a);
+                cidades.add(a);
 
             }
 
@@ -165,7 +165,7 @@ public class CidadesDAO {
             Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return autores;
+        return cidades;
     }
      public void excluir(cidades a) {
 
@@ -185,4 +185,4 @@ public class CidadesDAO {
             Logger.getLogger(CidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-}
+}    
