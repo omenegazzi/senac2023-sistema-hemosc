@@ -9,28 +9,31 @@ import javax.swing.JOptionPane;
 
 public class UsuariosDAO {
         
-    public void cadastro(String usuario, String senha, String confirmaSenha) {
+    public void cadastro(String email, String usuario, char[] senha, char[] confirmaSenha) {
 
         Connection conn = conexaoMysql.conexao();
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
         try {
-            stmt = conn.prepareStatement("SELECT COUNT(*) FROM login WHERE usuario = ? AND senha = ?");
-            stmt.setString(1, usuario);
-            stmt.setString(2, senha);
+            stmt = conn.prepareStatement("SELECT COUNT(*) FROM login WHERE email = ? AND usuario = ? AND senha = ?");
+            stmt.setString(1, email);
+            stmt.setString(2, usuario);
+            stmt.setString(3, String.valueOf(senha));
 
             rs = stmt.executeQuery();
             if (rs.next()) {
                 int count = rs.getInt(1);
                 if(count > 0){
                     JOptionPane.showMessageDialog(null, "Usuário já cadastrado");
-                }else if (senha.equals(confirmaSenha)){
-                    stmt = conn.prepareStatement("INSERT INTO login VALUES (?, ?)");
-                    stmt.setString(1, usuario);
-                    stmt.setString(2, senha);
+                }else if (senha == confirmaSenha){
+                    stmt = conn.prepareStatement("INSERT INTO login VALUES (?,?,?,?)");
+                    stmt.setString(1, email);
+                    stmt.setString(2, usuario);
+                    stmt.setString(3, String.valueOf(senha));
+                    stmt.setString(4, String.valueOf(confirmaSenha));
 
-                    stmt.executeUpdate();
+                    stmt.executeUpdate();  
 
                     JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
                 }else{
@@ -44,7 +47,7 @@ public class UsuariosDAO {
         return; //Em caso de erro ou se não houver registros correspondentes.
     }
         
-    public boolean validacaoLogin(String usuario, String senha) {
+    public boolean validacaoLogin(String usuario, char[] senha) {
 
         Connection conn = conexaoMysql.conexao();
         PreparedStatement stmt = null;
@@ -53,7 +56,7 @@ public class UsuariosDAO {
         try {
             stmt = conn.prepareStatement("SELECT COUNT(*) FROM login WHERE usuario = ? AND senha = ?");
             stmt.setString(1, usuario);
-            stmt.setString(2, senha);
+            stmt.setString(2, String.valueOf(senha));
 
             rs = stmt.executeQuery();
 

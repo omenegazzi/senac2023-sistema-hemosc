@@ -25,44 +25,65 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pswSenha" max="32767" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblNovoUsuario" min="-2" pref="53" max="-2" attributes="0"/>
-                          <Component id="txtNovaSenha" min="-2" pref="166" max="-2" attributes="0"/>
-                          <Component id="lblNovaSenha" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
-                          <Component id="txtNovoUsuario" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
-                          <Component id="lblConfirmaSenha" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtConfirmaSenha" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="pswConfirmarSenha" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="btnCadastro" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblNovoUsuario" min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Component id="lblNovaSenha" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Component id="lblConfirmaSenha" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEmail" alignment="0" pref="224" max="32767" attributes="0"/>
+                                  <Component id="txtNovoUsuario" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="46" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="15" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+              <Component id="btnCadastro" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="100" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtEmail" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="lblNovoUsuario" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="txtNovoUsuario" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblNovaSenha" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="txtNovaSenha" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pswSenha" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="lblConfirmaSenha" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="txtConfirmaSenha" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Component id="pswConfirmarSenha" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnCadastro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,8 +93,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Usu&#xe1;rio:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtNovaSenha">
     </Component>
     <Component class="javax.swing.JLabel" name="lblNovaSenha">
       <Properties>
@@ -87,8 +106,6 @@
         <Property name="text" type="java.lang.String" value="Confirmar senha:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtConfirmaSenha">
-    </Component>
     <Component class="javax.swing.JButton" name="btnCadastro">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
@@ -96,6 +113,17 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastroActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtEmail">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="E-mail"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="pswSenha">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="pswConfirmarSenha">
     </Component>
   </SubComponents>
 </Form>
