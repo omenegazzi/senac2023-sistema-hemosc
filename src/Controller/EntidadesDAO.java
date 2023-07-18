@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  *
  * @author murilo.comim
  */
-public class EntidadesDao {
+public class EntidadesDAO {
     
     private List<entidades> entidadesList = new ArrayList();
     private String ListSQL;
@@ -62,7 +62,7 @@ public class EntidadesDao {
             while (rs.next()) {
                 entidades ee = new entidades();
                 ee.setId(rs.getInt("id_entidade"));
-               // ee.setCidade(rs.getInt("fk_cidades_id_cidade"));
+                ee.setCidadeId(rs.getInt("fk_cidades_id_cidade"));
                 ee.setNome(rs.getString("nome"));
                 ee.setEndereco(rs.getString("endereco"));
 
@@ -71,7 +71,7 @@ public class EntidadesDao {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(EntidadesDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EntidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -83,7 +83,7 @@ public class EntidadesDao {
 
         try {
             stmt = conn.prepareStatement("INSERT INTO entidades (fk_cidades_id_cidade, nome, endereco) VALUES (?,?,?)");
-            stmt.setInt(1, ee.getCidade().getId());
+            stmt.setInt(1, ee.getCidadeId());
             stmt.setString(2, ee.getNome());            
             stmt.setString(3, ee.getEndereco());
             
@@ -93,7 +93,7 @@ public class EntidadesDao {
             JOptionPane.showMessageDialog(null, "Entidade Salva com Sucesso!");
 
         } catch (SQLException ex) {
-            Logger.getLogger(EntidadesDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EntidadesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
