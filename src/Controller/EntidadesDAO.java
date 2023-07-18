@@ -48,7 +48,7 @@ public class EntidadesDao {
 
         getEntidadesList().clear(); //Limpando a lista
 
-        //Inicio da conex„o com o banco
+        //Inicio da conex√£o com o banco
         Connection conn = conexaoMysql.conexao();
         PreparedStatement stmt = null;
         ResultSet rs = null; 
