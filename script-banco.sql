@@ -3,9 +3,11 @@ CREATE DATABASE db_hemosc;
 use db_hemosc;
 
 CREATE TABLE login(
+id_usuario INT NOT NULL AUTO_INCREMENT,
+email varchar(30) not null,
 usuario VARCHAR(30) NOT NULL,
 senha VARCHAR(30) NOT NULL,
-PRIMARY KEY (usuario)
+PRIMARY KEY (id_usuario)
 );
 <<<<<<< HEAD
 <<<<<<< HEAD
