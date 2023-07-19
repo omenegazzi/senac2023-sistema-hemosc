@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 public class UsuariosDAO {
@@ -26,12 +27,11 @@ public class UsuariosDAO {
                 int count = rs.getInt(1);
                 if(count > 0){
                     JOptionPane.showMessageDialog(null, "Usuário já cadastrado");
-                }else if (senha == confirmaSenha){
-                    stmt = conn.prepareStatement("INSERT INTO login VALUES (?,?,?,?)");
+                }else if (Arrays.equals(senha,confirmaSenha)){
+                    stmt = conn.prepareStatement("INSERT INTO login(email,usuario,senha)values(?,?,?)");
                     stmt.setString(1, email);
                     stmt.setString(2, usuario);
                     stmt.setString(3, String.valueOf(senha));
-                    stmt.setString(4, String.valueOf(confirmaSenha));
 
                     stmt.executeUpdate();  
 
