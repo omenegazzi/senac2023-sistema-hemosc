@@ -1,6 +1,11 @@
 <<<<<<< OURS
+<<<<<<< HEAD
 /build/
 /nbproject/private/
+=======
+/build/
+/nbproject/private/
+>>>>>>> origin/#excluir_colaboradores
 <<<<<<< OURS
 =======
 <<<<<<< HEAD
@@ -25,4 +30,7 @@
 >>>>>>> b71c144 aaaaaaaaaaaaaaaaaaaaaaa
 >>>>>>> THEIRS
 >>>>>>> THEIRS
+<<<<<<< HEAD
 /dist/
+=======
+>>>>>>> origin/#excluir_colaboradores
