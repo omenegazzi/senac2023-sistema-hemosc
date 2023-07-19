@@ -17,7 +17,7 @@ public class telaCidades extends javax.swing.JFrame {
     public telaCidades() {
         initComponents();
         carregarDados();
-        
+
         this.setLocationRelativeTo(null);
     }
 
@@ -259,14 +259,15 @@ public class telaCidades extends javax.swing.JFrame {
             });
         }
     }
-    public void acaobotaolimpa(){
+
+    public void acaobotaolimpa() {
         txtID.setText("");
         txtIbge.setText("");
         txtDescricao.setText("");
         txtUf.setText("");
         txtPesquisar.setText("");
-}
-    
+    }
+
     public void pesquisaDados() {
         CidadesDAO dao = new CidadesDAO();
         DefaultTableModel tabela = (DefaultTableModel) tCidades.getModel();
@@ -281,7 +282,7 @@ public class telaCidades extends javax.swing.JFrame {
             });
         }
     }
-    
+
     private void tCidadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tCidadesMouseClicked
         txtID.setText(tCidades.getValueAt(tCidades.getSelectedRow(), 0).toString());
         txtIbge.setText(tCidades.getValueAt(tCidades.getSelectedRow(), 1).toString());
@@ -300,7 +301,7 @@ public class telaCidades extends javax.swing.JFrame {
         a.setDescricao(txtDescricao.getText());
         a.setUf(txtUf.getText());
         a.setCodigoIbge(Integer.parseInt(txtIbge.getText()));
-     
+
         dao.salvar(a);
         carregarDados();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -308,12 +309,12 @@ public class telaCidades extends javax.swing.JFrame {
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         cidades a = new cidades();
         CidadesDAO dao = new CidadesDAO();
-        
+
         a.setCodigoIbge(Integer.parseInt(txtIbge.getText()));
         a.setDescricao(txtDescricao.getText());
         a.setUf(txtUf.getText());
         a.setId(Integer.parseInt(txtID.getText()));
-        
+
         dao.alterar(a);
         carregarDados();
     }//GEN-LAST:event_btnAlterarActionPerformed
@@ -335,9 +336,9 @@ public class telaCidades extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         cidades a = new cidades();
+        cidades a = new cidades();
         CidadesDAO dao = new CidadesDAO();
-        
+
         a.setId(Integer.parseInt(txtID.getText()));
 
         dao.excluir(a);
