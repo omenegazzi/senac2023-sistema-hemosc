@@ -1,6 +1,8 @@
 <<<<<<< OURS
 /build/
 /nbproject/private/
+<<<<<<< OURS
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -22,3 +24,5 @@
 >>>>>>> origin/#63-Função_excluir_Agendamentos
 >>>>>>> b71c144 aaaaaaaaaaaaaaaaaaaaaaa
 >>>>>>> THEIRS
+>>>>>>> THEIRS
+/dist/
