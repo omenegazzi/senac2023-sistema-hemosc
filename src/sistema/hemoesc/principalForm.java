@@ -42,6 +42,7 @@ public class principalForm extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         mnCadastros = new javax.swing.JMenu();
         mniCidade = new javax.swing.JMenuItem();
+        MiniUsuarios = new javax.swing.JMenuItem();
         mnMovimentacoes = new javax.swing.JMenu();
         mniAgendamento = new javax.swing.JMenuItem();
 
@@ -62,6 +63,14 @@ public class principalForm extends javax.swing.JFrame {
             }
         });
         mnCadastros.add(mniCidade);
+
+        MiniUsuarios.setText("Usuarios");
+        MiniUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MiniUsuariosActionPerformed(evt);
+            }
+        });
+        mnCadastros.add(MiniUsuarios);
 
         jMenuBar1.add(mnCadastros);
 
@@ -106,7 +115,14 @@ public class principalForm extends javax.swing.JFrame {
     private void mniAgendamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgendamentoActionPerformed
         TelaAgendarDoacao agendamento = new TelaAgendarDoacao();
         agendamento.setVisible(true);
+        
     }//GEN-LAST:event_mniAgendamentoActionPerformed
+
+    private void MiniUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MiniUsuariosActionPerformed
+        ConsultaUsuarioForm Consulta = new ConsultaUsuarioForm();
+        Consulta.setVisible(true);
+        
+    }//GEN-LAST:event_MiniUsuariosActionPerformed
 
 
     /**
@@ -145,6 +161,7 @@ public class principalForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MiniUsuarios;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu mnCadastros;
     private javax.swing.JMenu mnMovimentacoes;

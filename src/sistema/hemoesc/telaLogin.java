@@ -4,7 +4,7 @@ import Controller.UsuariosDAO;
 
 public class telaLogin extends javax.swing.JFrame {
     
-    public String usuario;
+    public String usuario,email;
     public char[]senha;
     public static telaLogin telaLogin = new telaLogin();
 
@@ -111,10 +111,11 @@ public class telaLogin extends javax.swing.JFrame {
         principalForm p = new principalForm();
         UsuariosDAO dao = new UsuariosDAO();
         
+        email = txtEmail.getText();
         usuario = txtUser.getText();
         senha = pswSenha.getPassword();
         
-        if(dao.validacaoLogin(usuario, senha) == true){
+        if(dao.validacaoLogin(email,usuario, senha) == true){
             p.setVisible(true);
             this.dispose();
         }
