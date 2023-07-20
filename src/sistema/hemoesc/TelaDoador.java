@@ -11,7 +11,7 @@ import Model.Doadores;
 public class TelaDoador extends javax.swing.JFrame {
 
     public static TelaDoador TelaDoador = new TelaDoador();
-    public String Nome, Telefone, Email, Endereco,DataNascimento,TipodeSangue,CidadeID;
+    public String Nome, Telefone, Email, Endereco,DataNascimento,TipodeSangue,CidadeID,CodigoDoador;
     
 
     public TelaDoador() {
@@ -25,13 +25,14 @@ public class TelaDoador extends javax.swing.JFrame {
         DoacaoDao dao = new DoacaoDao();
         DefaultTableModel Tabela = (DefaultTableModel) tTabela.getModel();
         Tabela.setNumRows(0);
-        for (Doadores d : dao.list()) {
+        for (Doadores d : dao.listar()) {
             Tabela.addRow(new Object[]{
                 d.getNome(),
                 d.getEmail(),
                 d.getTelefone(),
                 d.getCidadeId(),
                 d.getTipoSanguineoId(),
+                d.getId(),
                 d.getEndereco(),});
         }
     }
@@ -98,6 +99,11 @@ public class TelaDoador extends javax.swing.JFrame {
         jLabel9.setText("SANGUE:");
 
         btAlterar.setText("ALTERAR");
+        btAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAlterarActionPerformed(evt);
+            }
+        });
 
         btExcluir.setText("EXCLUIR");
 
@@ -142,7 +148,7 @@ public class TelaDoador extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btFechar))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -284,10 +290,16 @@ public class TelaDoador extends javax.swing.JFrame {
         DataNascimento = tfData.getText();
         TipodeSangue = (String) cbSangue.getSelectedItem();
         CidadeID = (String) cbCidade.getSelectedItem();
+        CodigoDoador = (String)tfCodigo.getText();
+        
         
         dao.salvar(d);
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btAlterarActionPerformed
 
     /**
      * @param args the command line arguments
