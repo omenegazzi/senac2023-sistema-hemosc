@@ -9,6 +9,10 @@ package Model;
  * @author murilo.comim
  */
 public class Doadores {
+
+    public static void add(Doadores doa) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     private int Id;
     private int CidadeId;
