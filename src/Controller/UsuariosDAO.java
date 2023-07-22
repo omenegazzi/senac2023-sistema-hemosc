@@ -52,7 +52,7 @@ public class UsuariosDAO {
         return; //Em caso de erro ou se não houver registros correspondentes.
     }
 
-    public boolean validacaoLogin(String usuario,String email, char[] senha) {
+    public boolean validacaoLogin(String usuario, String email, char[] senha) {
 
         Connection conn = conexaoMysql.conexao();
         PreparedStatement stmt = null;
@@ -61,7 +61,7 @@ public class UsuariosDAO {
         try {
             stmt = conn.prepareStatement("SELECT COUNT(*) FROM login WHERE email = ? AND usuario = ? AND senha = ?");
             stmt.setString(1, usuario);
-            stmt.setString(2,email);
+            stmt.setString(2, email);
             stmt.setString(3, String.valueOf(senha));
 
             rs = stmt.executeQuery();
@@ -69,12 +69,13 @@ public class UsuariosDAO {
             if (rs.next()) {
                 int count = rs.getInt(1);
                 if (count > 0) {
-                    JOptionPane.showMessageDialog(null, "Seja bem-vindo, " + usuario + "!");
+                    JOptionPane.showMessageDialog(null, "Seja bem-vindo, " + email + "!");
                     return true;
                 } else {
                     JOptionPane.showMessageDialog(null, "Login incorreto!");
                 }
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -96,7 +97,7 @@ public class UsuariosDAO {
                 Usuarios u = new Usuarios();
                 u.setId(rs.getInt("id_usuario"));
                 u.setUsuario(rs.getString("usuario"));
-                u.setEmail(rs.getNString("email"));
+                u.setEmail(rs.getString("email"));
                 Usuarios.add(u);
             }
         } catch (SQLException ex) {
@@ -154,23 +155,116 @@ public class UsuariosDAO {
 
         try {
             stmt = conn.prepareStatement("select*from login where usuario like ? '%'");
-            stmt.setString(1, '%'+texto+'%');
+            stmt.setString(1, '%' + texto + '%');
             rs = stmt.executeQuery();
-            
-             while(rs.next()){
-            Usuarios u = new Usuarios();
-            u.setId(rs.getInt("id_usuario"));
-            u.setUsuario(rs.getString("usuario"));
-            u.setEmail(rs.getString("email"));
- 
-            
-            Usuarios.add(u);
+
+            while (rs.next()) {
+                Usuarios u = new Usuarios();
+                u.setId(rs.getInt("id_usuario"));
+                u.setUsuario(rs.getString("usuario"));
+                u.setEmail(rs.getString("email"));
+
+                Usuarios.add(u);
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return Usuarios;
-        
+
     }
 
+    public void AlteraSenha(String email, char[] senha, char[] confirmaSenha) {
+
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+
+            stmt = conn.prepareStatement("SELECT COUNT(*) FROM login WHERE email = ? AND senha = ?");
+            stmt.setString(1, email);
+            stmt.setString(2, String.valueOf(senha));
+
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                if (count > 0) {
+                    JOptionPane.showMessageDialog(null, "Usuário já cadastrado");
+                } else if (Arrays.equals(senha, confirmaSenha)) {
+                    stmt = conn.prepareStatement("UPDATE login set senha = ? where email = ?");
+                    stmt.setString(1, email);
+                    stmt.setString(2, String.valueOf(senha));
+
+                    stmt.executeUpdate();
+
+                    JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
+                } else {
+                    JOptionPane.showMessageDialog(null, "As senhas não coincidem!");
+                }
+            }
+            
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public boolean validacaoSenha(String email, char[] senha) {
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = conn.prepareStatement("SELECT COUNT(*) FROM login WHERE email = ? AND senha = ?");
+            stmt.setString(1, email);
+            stmt.setString(2, String.valueOf(senha));
+
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                
+                if (count>0) {
+                    JOptionPane.showMessageDialog(null, "Senha alterada com sucesso!");
+                    return true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Senha ou Email incorretos!");
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuariosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+    }
+    
+    /*public class AlterarSenha{
+
+    public static boolean alterarSenha(String email, char[] senhaAtual, char[] novaSenha) {
+        Connection conn = conexaoMysql.conexao();
+        PreparedStatement stmt = null;
+        
+        try{
+            String sql = "SELECT * FROM login WHERE email = ? AND senha = ?";
+            stmt.setString(1, email);
+            stmt.setString(2, String.valueOf(senhaAtual));
+            ResultSet resultado = stmt.executeQuery();
+            
+            if (resultado.next()) {
+                String updateSql = "UPDATE usuarios SET senha = ? WHERE email = ?";
+                stmt.setString(1, String.valueOf(novaSenha));
+                stmt.setString(2, String.valueOf(email));
+                stmt.executeUpdate();
+                return true;
+            } else {
+                return false; // Senha atual não corresponde ao usuário no banco de dados.
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false; // Ocorreu algum erro durante a conexão ou atualização no banco de dados.
+        }
+    }
+    }
+    */
 }

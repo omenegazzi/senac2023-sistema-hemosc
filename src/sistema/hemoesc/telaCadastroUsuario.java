@@ -24,7 +24,7 @@ public class telaCadastroUsuario extends javax.swing.JFrame {
         pswSenha = new javax.swing.JPasswordField();
         pswConfirmarSenha = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblNovoUsuario.setText("Usuário:");
 
